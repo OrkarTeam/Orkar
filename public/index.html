@@ -64,7 +64,7 @@
   <p>Sat: ${inscriptionData["sat"]}</p>
   <p>Content Length: ${inscriptionData["content length"]}</p>
   <p>Genesis Fee: ${inscriptionData["genesis fee"]}</p>
-  <p>Genesis Height: ${inscriptionData["genesis height"]}</p>
+  <p>Genesis Height: <a href="https://www.blockchain.com/explorer/blocks/btc/${inscriptionData["genesis height"].split("/")[2]}" target="_blank" style="color: gray; font-weight: bold; text-decoration: none;">${inscriptionData["genesis height"].split("/")[2]}</a></p>
   <p>Genesis Transaction: ${inscriptionData["genesis transaction"]}</p>
   <p>Location: ${inscriptionData["location"]}</p>
   <p>Offset: ${inscriptionData["offset"]}</p>
