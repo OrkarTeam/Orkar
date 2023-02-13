@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <title>Inscription Information</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
@@ -61,60 +62,57 @@ window.addEventListener("load", getSite);
         .then(response => response.json())
         .then(inscriptionData => {
 
-        // Display the inscription data in the "inscriptionInfo" div
-        const inscriptionInfoDiv = document.querySelector("#inscriptionInfo");
-        inscriptionInfoDiv.innerHTML = `
-        <div id="inscriptionInfo">
+          const inscriptionInfoDiv = document.querySelector("#inscriptionInfo");
+          const content = inscriptionData["content"];
+          const title = inscriptionData["title"];
+          const address = inscriptionData["address"];
+          const id = inscriptionData["id"];
+          const sat = inscriptionData["sat"];
+          const contentLength = inscriptionData["content length"];
+          const genesisFee = inscriptionData["genesis fee"];
+          const genesisHeight = inscriptionData["genesis height"].split("/")[2];
+          const genesisTransaction = inscriptionData["genesis transaction"];
+          const location = inscriptionData["location"];
+          const offset = inscriptionData["offset"];
+          const outputValue = inscriptionData["output value"];
+          const timestamp = inscriptionData["timestamp"];
+
+          inscriptionInfoDiv.innerHTML = `
+          <div id="inscriptionInfo">
           <div style="display: flex;">
-            <img src="https://ordinals.com${inscriptionData["content"]}" alt="Inscription Image" style="width: 338.656px; height: 338.656px;">
-  <div style="margin-left: 10px;">
-    <h2>${inscriptionData.title}</h2>
-    <p class="address">Owned By: <a href="https://www.blockchain.com/explorer/addresses/btc/${inscriptionData["address"]}" style="color: gray; text-decoration: none; font-weight: bold; font-size: smaller;">
-      ${inscriptionData["address"].substr(0, 5)}-${inscriptionData["address"].substr(-5)}
-    </a></p>
-  </div>
-</div>
-<div style="width: 670px; border: 4px solid #191a1b; padding: 10px; margin-top: 10px; margin-left: 10px; border-radius: 10px;">
-  <p style="font-size: 18px; font-weight: bold;">ID: <span style="color: dimgray; font-weight: bold;">${inscriptionData["id"]}</span></p>
-  <hr style="border: 1px solid black;">
-  <p style="font-size: 18px; font-weight: bold;">Sat: <span style="color: dimgray; font-weight: bold;">${inscriptionData["sat"]}</span></p>
-  <hr style="border: 1px solid black;">
-  <p style="font-size: 18px; font-weight: bold;">Content Length: <span style="color: dimgray; font-weight: bold;">${inscriptionData["content length"]}</span></p>
-  <hr style="border: 1px solid black;">
-  <p style="font-size: 18px; font-weight: bold;">Genesis Fee: <span style="color: dimgray; font-weight: bold;">${inscriptionData["genesis fee"]}</span></p>
-  <hr style="border: 1px solid black;">
-  <p style="font-size: 18px; font-weight: bold;">Genesis Height: <a href="https://www.blockchain.com/explorer/blocks/btc/${inscriptionData["genesis height"].split("/")[2]}" target="_blank" style="color: dimgray; font-weight: bold; text-decoration: none;">${inscriptionData["genesis height"].split("/")[2]}</a></p>
-  <hr style="border: 1px solid black;">
-  <p style="font-size: 18px; font-weight: bold;">Genesis Transaction: <span style="color: dimgray; font-weight: bold;">${inscriptionData["genesis transaction"]}</span></p>
-  <hr style="border: 1px solid black;">
-  <p style="font-size: 18px; font-weight: bold;">Location: <span style="color: dimgray; font-weight: bold;">${inscriptionData["location"]}</span></p>
-  <hr style="border: 1px solid black;">
-  <p style="font-size: 18px; font-weight: bold;">Offset: <span style="color: dimgray; font-weight: bold;">${inscriptionData["offset"]}</span></p>
-  <hr style="border: 1px solid black;">
-  <p style="font-size: 18px; font-weight: bold;">Output Value: <span style="color: dimgray; font-weight: bold;">${inscriptionData["output value"]}</span></p>
-  <hr style="border: 1px solid black;">
-  <p style="font-size: 18px; font-weight: bold;">Location: <span style="color: dimgray; font-weight: bold;">${inscriptionData["location"]}</span></p>
+          <img src="https://ordinals.com${content}" class="theimg" alt="Inscription Image">
 
-<hr style="border: 1px solid black;">
-<p style="font-size: 18px; font-weight: bold;">Offset: <span style="color: dimgray; font-weight: bold;">${inscriptionData["offset"]}</span></p>
-<hr style="border: 1px solid black;">
-<p style="font-size: 18px; font-weight: bold;">Output Value: <span style="color: dimgray; font-weight: bold;">${inscriptionData["output value"]}</span></p>
-<hr style="border: 1px solid black;">
-<p style="font-size: 18px; font-weight: bold;">Timestamp: <span style="color: dimgray; font-weight: bold;">${inscriptionData["timestamp"]}</span></p>
-</div>
-
-      </div>
-    
+            <div class="topdiv">
+              <h2>${title}</h2>
+              <p class="address">Owned By: <a href="https://www.blockchain.com/explorer/addresses/btc/${address}" style="color: gray; text-decoration: none; font-weight: bold; font-size: smaller;">
+                ${address.substr(0, 5)}-${address.substr(-5)}
+              </a></p>
+            </div>
+          </div>
+          <div class="maindiv">
+            <p class="inscription-text">ID: <span class="inscription-span">${id}</span></p>
+            <hr class="border">
+            <p class="inscription-text">Sat: <span class="inscription-span">${sat}</span></p>
+            <hr class="border">
+            <p class="inscription-text">Content Length: <span class="inscription-span">${contentLength}</span></p>
+            <hr class="border">
+            <p class="inscription-text">Genesis Fee: <span class="inscription-span">${genesisFee}</span></p>
+            <hr class="border">
+            <p class="inscription-text">Genesis Height: <a href="https://www.blockchain.com/explorer/blocks/btc/${genesisHeight}" target="_blank" style="color: dimgray; font-weight: bold; text-decoration: none;">${genesisHeight}</a></p>
+            <hr class="border">
+            <p class="inscription-text">Genesis Transaction: <span class="inscription-span">${genesisTransaction}</span></p>
+            <hr class="border">
+            <p class="inscription-text">Location: <span class="inscription-span">${inscriptionData["location"]}</span></p>
+            <hr class="border">
+            <p class="inscription-text">Offset: <span class="inscription-span">${inscriptionData["offset"]}</span></p>
+            <hr class="border">
+            <p class="inscription-text">Output Value: <span class="inscription-span">${inscriptionData["output value"]}</span></p>
+            <hr class="border">
+            <p class="inscription-text">Timestamp: <span class="inscription-span">${inscriptionData["timestamp"]}</span></p>
+            </div>
+      </div> 
     <div>
-      
-      <style>
-  .address {
-    font-size: 14px;
-    font-weight: bold;
-    color: lightgray;
-    margin-top: -20px;
-  }
-</style>
+
 
 
 
