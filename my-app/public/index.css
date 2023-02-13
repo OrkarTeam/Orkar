@@ -1,0 +1,119 @@
+body {
+  background-color: #333;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.Navbar--main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:8px;
+}
+
+header {
+  background-color: #101010;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input[type="text"] {
+  background-color: #444;
+  color: #fff;
+  width: 75%;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  font-size: 16px;
+}
+
+.search-container button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-container button[type="submit"]:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+.lenEFM {
+  display: flex;
+  align-items: center;
+}
+
+.fKAlPV {
+  margin-right:3px;
+}
+
+.dFYEpK img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.hxKAFa {
+  margin-right: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 5px;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+#inscriptionInfo img {
+  width: 338.656px;
+  height: 338.656px;
+  margin: 10px;
+  border: 5px solid rgb(20, 20, 20);
+  border-radius: 9px;
+}
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.collapsible-content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}

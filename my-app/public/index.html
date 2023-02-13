@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Inscription Information</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <header>
+      <nav class="Navbar--main">
+        <div class="sc-29427738-0 sc-aa344ffa-5 ktOAPP lenEFM">
+            <div height="40" width="40" class="sc-29427738-0 dFYEpK">
+              <img alt="Orkar.io Logo" src="https://media.discordapp.net/attachments/933585220114972752/1074176618253254676/OrkarLogo.png" width="40" height="40">
+            </div>
+          </a>
+          <div class="sc-29427738-0 sc-630fc9ab-0 hxKAFa jSPhMX">
+            <strong>Orkar.io</strong>
+          
+        </div>
+        <form>
+        <div class="search-container">
+          
+            <input type="text" id="inscriptionId" placeholder="Search Inscription ID">
+          
+          <button type="submit">
+            <i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <h1>Inscription Information</h1>
+
+    <div id="inscriptionInfo"></div>
+    <div id="errorMessage" style="display: none;">There was an error fetching the inscription information. Please try again later.</div>
+
+<script>
+  const form = document.querySelector("form");
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    const inscriptionId = document.querySelector("#inscriptionId").value;
+    const url = `https://ordapi.xyz/inscription/${inscriptionId}`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(inscriptionData => {
+        // Display the inscription data in the "inscriptionInfo" div
+        const inscriptionInfoDiv = document.querySelector("#inscriptionInfo");
+        inscriptionInfoDiv.innerHTML = `
+        <div id="inscriptionInfo">
+          <div style="display: flex;">
+  <img src="https://ordinals.com${inscriptionData["content"]}" alt="Inscription Image" style="width: 338.656px; height: 338.656px;">
+  <div style="margin-left: 10px;">
+    <h2>${inscriptionData.title}</h2>
+    <p class="address">Owned By: <a href="https://www.blockchain.com/explorer/addresses/btc/${inscriptionData["address"]}" style="color: gray; text-decoration: none; font-weight: bold; font-size: smaller;">
+      ${inscriptionData["address"].substr(0, 5)}-${inscriptionData["address"].substr(-5)}
+    </a></p>
+  </div>
+</div>
+
+<div style="border: 1px solid black; padding: 10px; margin-top: 10px;">
+  <p>ID: ${inscriptionData["id"]}</p>
+  <p>Sat: ${inscriptionData["sat"]}</p>
+  <p>Content Length: ${inscriptionData["content length"]}</p>
+  <p>Genesis Fee: ${inscriptionData["genesis fee"]}</p>
+  <p>Genesis Height: ${inscriptionData["genesis height"]}</p>
+  <p>Genesis Transaction: ${inscriptionData["genesis transaction"]}</p>
+  <p>Location: ${inscriptionData["location"]}</p>
+  <p>Offset: ${inscriptionData["offset"]}</p>
+  <p>Output Value: ${inscriptionData["output value"]}</p>
+  <p>Timestamp: ${inscriptionData["timestamp"]}</p>
+</div>
+
+      </div>
+    
+    <div>
+      
+      <style>
+  .address {
+    font-size: 14px;
+    font-weight: bold;
+    color: lightgray;
+    margin-top: -20px;
+  }
+</style>
+
+
+
+        `;
+      });
+  });
+</script>
+</body>
+</html>
