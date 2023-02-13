@@ -74,17 +74,33 @@ window.addEventListener("load", getSite);
     </a></p>
   </div>
 </div>
-<div style="border: 1px solid black; padding: 10px; margin-top: 10px;">
-  <p>ID: ${inscriptionData["id"]}</p>
-  <p>Sat: ${inscriptionData["sat"]}</p>
-  <p>Content Length: ${inscriptionData["content length"]}</p>
-  <p>Genesis Fee: ${inscriptionData["genesis fee"]}</p>
-  <p>Genesis Height: <a href="https://www.blockchain.com/explorer/blocks/btc/${inscriptionData["genesis height"].split("/")[2]}" target="_blank" style="color: gray; font-weight: bold; text-decoration: none;">${inscriptionData["genesis height"].split("/")[2]}</a></p>
-  <p>Genesis Transaction: ${inscriptionData["genesis transaction"]}</p>
-  <p>Location: ${inscriptionData["location"]}</p>
-  <p>Offset: ${inscriptionData["offset"]}</p>
-  <p>Output Value: ${inscriptionData["output value"]}</p>
-  <p>Timestamp: ${inscriptionData["timestamp"]}</p>
+<div style="width: 650px; border: 4px solid #191a1b; padding: 10px; margin-top: 10px; margin-left: 10px; border-radius: 10px;">
+  <p style="font-size: 18px; font-weight: bold;">ID: <span style="color: dimgray; font-weight: bold;">${inscriptionData["id"]}</span></p>
+  <hr style="border: 1px solid black;">
+  <p style="font-size: 18px; font-weight: bold;">Sat: <span style="color: dimgray; font-weight: bold;">${inscriptionData["sat"]}</span></p>
+  <hr style="border: 1px solid black;">
+  <p style="font-size: 18px; font-weight: bold;">Content Length: <span style="color: dimgray; font-weight: bold;">${inscriptionData["content length"]}</span></p>
+  <hr style="border: 1px solid black;">
+  <p style="font-size: 18px; font-weight: bold;">Genesis Fee: <span style="color: dimgray; font-weight: bold;">${inscriptionData["genesis fee"]}</span></p>
+  <hr style="border: 1px solid black;">
+  <p style="font-size: 18px; font-weight: bold;">Genesis Height: <a href="https://www.blockchain.com/explorer/blocks/btc/${inscriptionData["genesis height"].split("/")[2]}" target="_blank" style="color: dimgray; font-weight: bold; text-decoration: none;">${inscriptionData["genesis height"].split("/")[2]}</a></p>
+  <hr style="border: 1px solid black;">
+  <p style="font-size: 18px; font-weight: bold;">Genesis Transaction: <span style="color: dimgray; font-weight: bold;">${inscriptionData["genesis transaction"]}</span></p>
+  <hr style="border: 1px solid black;">
+  <p style="font-size: 18px; font-weight: bold;">Location: <span style="color: dimgray; font-weight: bold;">${inscriptionData["location"]}</span></p>
+  <hr style="border: 1px solid black;">
+  <p style="font-size: 18px; font-weight: bold;">Offset: <span style="color: dimgray; font-weight: bold;">${inscriptionData["offset"]}</span></p>
+  <hr style="border: 1px solid black;">
+  <p style="font-size: 18px; font-weight: bold;">Output Value: <span style="color: dimgray; font-weight: bold;">${inscriptionData["output value"]}</span></p>
+  <hr style="border: 1px solid black;">
+  <p style="font-size: 18px; font-weight: bold;">Location: <span style="color: dimgray; font-weight: bold;">${inscriptionData["location"]}</span></p>
+
+<hr style="border: 1px solid black;">
+<p style="font-size: 18px; font-weight: bold;">Offset: <span style="color: dimgray; font-weight: bold;">${inscriptionData["offset"]}</span></p>
+<hr style="border: 1px solid black;">
+<p style="font-size: 18px; font-weight: bold;">Output Value: <span style="color: dimgray; font-weight: bold;">${inscriptionData["output value"]}</span></p>
+<hr style="border: 1px solid black;">
+<p style="font-size: 18px; font-weight: bold;">Timestamp: <span style="color: dimgray; font-weight: bold;">${inscriptionData["timestamp"]}</span></p>
 </div>
 
       </div>
