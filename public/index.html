@@ -18,14 +18,14 @@
             <strong>Orkar.io</strong>
           
         </div>
-        <form>
-        <div class="search-container">
-          
-            <input type="text" id="inscriptionId" placeholder="Search Inscription ID">
-          
-          <button type="submit">
-            <i class="fa fa-search"></i></button>
-          </form>
+        <form action="#" onsubmit="searchInscription(event); return false;">
+          <div class="search-container">
+            <input type="text" id="inscriptionId" name="inscriptionid" placeholder="Search Inscription ID">
+            <button type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </form>
         </div>
       </nav>
     </header>
@@ -37,20 +37,36 @@
 
 <script>
   const form = document.querySelector("form");
-  form.addEventListener("submit", event => {
-    event.preventDefault();
-    const inscriptionId = document.querySelector("#inscriptionId").value;
-    const url = `https://ordapi.xyz/inscription/${inscriptionId}`;
 
-    fetch(url)
-      .then(response => response.json())
-      .then(inscriptionData => {
+  function searchInscription(event) {
+  const inscriptionId = document.getElementById("inscriptionId").value;
+  history.pushState({}, '', '?inscriptionid=' + encodeURIComponent(inscriptionId));
+  getSite()
+}
+
+  function getSite() {
+    let urlParams = new URLSearchParams(window.location.search);
+    let inscriptionId = urlParams.get('inscriptionid');
+    if (inscriptionId) {
+      const url = `https://ordapi.xyz/inscription/${inscriptionId}`;
+      getData(url)
+      console.log(url)
+    }
+  }
+
+window.addEventListener("load", getSite);
+
+    function getData(url) {
+      fetch(url)
+        .then(response => response.json())
+        .then(inscriptionData => {
+
         // Display the inscription data in the "inscriptionInfo" div
         const inscriptionInfoDiv = document.querySelector("#inscriptionInfo");
         inscriptionInfoDiv.innerHTML = `
         <div id="inscriptionInfo">
           <div style="display: flex;">
-  <img src="https://ordinals.com${inscriptionData["content"]}" alt="Inscription Image" style="width: 338.656px; height: 338.656px;">
+            <img src="https://ordinals.com${inscriptionData["content"]}" alt="Inscription Image" style="width: 338.656px; height: 338.656px;">
   <div style="margin-left: 10px;">
     <h2>${inscriptionData.title}</h2>
     <p class="address">Owned By: <a href="https://www.blockchain.com/explorer/addresses/btc/${inscriptionData["address"]}" style="color: gray; text-decoration: none; font-weight: bold; font-size: smaller;">
@@ -58,7 +74,6 @@
     </a></p>
   </div>
 </div>
-
 <div style="border: 1px solid black; padding: 10px; margin-top: 10px;">
   <p>ID: ${inscriptionData["id"]}</p>
   <p>Sat: ${inscriptionData["sat"]}</p>
@@ -89,7 +104,8 @@
 
         `;
       });
-  });
+    }
+
 </script>
 </body>
 </html>
