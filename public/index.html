@@ -44,7 +44,45 @@
         </div>
       </section>
       <section id="recentInscriptions">
-        <!-- Recent inscriptions will be dynamically added here -->
+       <a id="title0"></a>
+       <br>
+       <a id="guid0"></a>
+       <br>
+       <a id="link0"></a>
+       <br>
+       <img src="" id="img0">
+       <br>
+       <br>
+
+       <a id="title1"></a>
+       <br>
+       <a id="guid1"></a>
+       <br>
+       <a id="link1"></a>
+       <br>
+       <img src="" id="img1">
+       <br>
+       <br>
+
+       <a id="title2"></a>
+       <br>
+       <a id="guid2"></a>
+       <br>
+       <a id="link2"></a>
+       <br>
+       <img src="" id="img2">
+       <br>
+       <br>
+
+       <a id="title3"></a>
+       <br>
+       <a id="guid3"></a>
+       <br>
+       <a id="link3"></a>
+       <br>
+       <img src="" id="img3">
+       <br>
+       <br>
       </section>
     </main>
     <script>
@@ -56,17 +94,58 @@
 window.addEventListener("load", getSite);
 
 function getData(url) {
-      fetch(url)
-      .then(response => response.json())
-  .then(data => {
-    const items = data.rss.channel.item.slice(0, 4);
-    console.log(items);
-  
-    const title = items["title"];
-    const guid = items["guid"];
-    const link = items["link"];
+  return fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const items = data.rss.channel.item.slice(0, 4);
 
-  });}
+      const title0 = items[0].title;
+      const title1 = items[1].title;
+      const title2 = items[2].title;
+      const title3 = items[3].title;
+
+      const guid0 = items[0].guid;
+      const guid1 = items[1].guid;
+      const guid2 = items[2].guid;
+      const guid3 = items[3].guid;
+
+      const link0 = items[0].link;
+      const link1 = items[1].link;
+      const link2 = items[2].link;
+      const link3 = items[3].link;
+
+      const id0 = guid0.substring(13);
+      const id1 = guid1.substring(13);
+      const id2 = guid2.substring(13);
+      const id3 = guid3.substring(13);
+
+      document.getElementById("title0").innerHTML = `${title0}`;
+      document.getElementById("title1").innerHTML = `${title0}`;
+      document.getElementById("title2").innerHTML = `${title0}`;
+      document.getElementById("title3").innerHTML = `${title0}`;
+
+      document.getElementById("guid0").innerHTML = `${guid0}`;
+      document.getElementById("guid1").innerHTML = `${guid1}`;
+      document.getElementById("guid2").innerHTML = `${guid2}`;
+      document.getElementById("guid3").innerHTML = `${guid3}`;
+
+      document.getElementById("link0").innerHTML = `${link0}`;
+      document.getElementById("link1").innerHTML = `${link1}`;
+      document.getElementById("link2").innerHTML = `${link2}`;
+      document.getElementById("link3").innerHTML = `${link3}`;
+
+      document.getElementById("img0").src=`https://ordinals.com/content/${id0}`;
+      document.getElementById("img1").src=`https://ordinals.com/content/${id1}`;
+      document.getElementById("img2").src=`https://ordinals.com/content/${id2}`;
+      document.getElementById("img3").src=`https://ordinals.com/content/${id3}`;
+
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+}
+
+
 
     </script>
     <footer>
