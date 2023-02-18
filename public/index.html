@@ -1,125 +1,94 @@
 <!DOCTYPE html>
 <html>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+ rel="stylesheet">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
+
   <head>
     <meta charset="UTF-8">
-    <title>Inscription Information</title>
+    <title>Orkar.io</title>
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <header>
-      <nav class="Navbar--main">
-        <div class="sc-29427738-0 sc-aa344ffa-5 ktOAPP lenEFM">
-            <div height="40" width="40" class="sc-29427738-0 dFYEpK">
-              <img alt="Orkar.io Logo" src="https://media.discordapp.net/attachments/933585220114972752/1074176618253254676/OrkarLogo.png" width="40" height="40">
-            </div>
-          </a>
-          <div class="sc-29427738-0 sc-630fc9ab-0 hxKAFa jSPhMX">
-            <strong>Orkar.io</strong>
-          
+      <nav class="navbar">
+        <div class="navbar-logo">
+          <img src="https://media.discordapp.net/attachments/933585220114972752/1074176618253254676/OrkarLogo.png" alt="Orkar.io Logo" width="40" height="40">
         </div>
-        <form action="#" onsubmit="searchInscription(event); return false;">
-          <div class="search-container">
-            <input type="text" id="inscriptionId" name="inscriptionid" placeholder="Search Inscription ID">
-            <button type="submit">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
+        
+        <form class="navbar-search-form" action="#">
+          <input class="navbar-search-input" type="text" id="inscriptionId" name="inscriptionid" placeholder="Search by Inscription ID">
+          <button class="navbar-search-button" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
         </form>
+        <div class="navbar-right">
+          <a href="#">List an Inscription</a>
+          <a href="#">
+            <i class="fa-solid fa-circle-user"></i></a>    
+            <a href="#">
+              <i class="fa-solid fa-gear"></i></a> 
+          
         </div>
       </nav>
     </header>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Discover and Collect Unique Inscriptions</h2>
+          <p>Buy, sell, and discover unique inscriptions with Orkar.io - the world's leading marketplace for ordinals.</p>
+          <a href="#" class="hero-button">Browse Inscriptions</a>
+        </div>
+      </section>
+      <section id="recentInscriptions">
+        <!-- Recent inscriptions will be dynamically added here -->
+      </section>
+    </main>
+    <script>
+      const recentInscriptionsDiv = document.querySelector("#recentInscriptions");
 
-    <h1>Inscription Information</h1>
+      fetch("https://ordapi.xyz/feed")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Check the structure of the returned data
+  .then(recentInscriptions => {
+    for (const inscription of recentInscriptions) {
+      const inscriptionDiv = document.createElement("div");
+      inscriptionDiv.className = "inscription";
 
-    <div id="inscriptionInfo"></div>
-    <div id="errorMessage" style="display: none;">There was an error fetching the inscription information. Please try again later.</div>
+      const link = document.createElement("a");
+      link.href = inscription.link;
 
-<script>
-  const form = document.querySelector("form");
+      const image = document.createElement("img");
+      image.src = "path/to/image";
+      image.alt = inscription.title;
+      image.className = "inscription-image";
 
-  function searchInscription(event) {
-  const inscriptionId = document.getElementById("inscriptionId").value;
-  history.pushState({}, '', '?inscriptionid=' + encodeURIComponent(inscriptionId));
-  getSite()
-}
+      const title = document.createElement("h3");
+      title.innerText = inscription.title;
+      title.className = "inscription-title";
 
-  function getSite() {
-    let urlParams = new URLSearchParams(window.location.search);
-    let inscriptionId = urlParams.get('inscriptionid');
-    if (inscriptionId) {
-      const url = `https://ordapi.xyz/inscription/${inscriptionId}`;
-      getData(url)
-      console.log(url)
-    }
-  }
+      link.appendChild(image);
+      link.appendChild(title);
+      inscriptionDiv.appendChild(link);
 
-window.addEventListener("load", getSite);
-
-    function getData(url) {
-      fetch(url)
-        .then(response => response.json())
-        .then(inscriptionData => {
-
-          const inscriptionInfoDiv = document.querySelector("#inscriptionInfo");
-          const content = inscriptionData["content"];
-          const title = inscriptionData["title"];
-          const address = inscriptionData["address"];
-          const id = inscriptionData["id"];
-          const sat = inscriptionData["sat"];
-          const contentLength = inscriptionData["content length"];
-          const genesisFee = inscriptionData["genesis fee"];
-          const genesisHeight = inscriptionData["genesis height"].split("/")[2];
-          const genesisTransaction = inscriptionData["genesis transaction"];
-          const location = inscriptionData["location"];
-          const offset = inscriptionData["offset"];
-          const outputValue = inscriptionData["output value"];
-          const timestamp = inscriptionData["timestamp"];
-
-          inscriptionInfoDiv.innerHTML = `
-          <div id="inscriptionInfo">
-          <div style="display: flex;">
-          <img src="https://ordinals.com${content}" class="theimg" alt="Inscription Image">
-
-            <div class="topdiv">
-              <h2>${title}</h2>
-              <p class="address">Owned By: <a href="https://www.blockchain.com/explorer/addresses/btc/${address}" style="color: gray; text-decoration: none; font-weight: bold; font-size: smaller;">
-                ${address.substr(0, 5)}-${address.substr(-5)}
-              </a></p>
-            </div>
-          </div>
-          <div class="maindiv">
-            <p class="inscription-text">ID: <span class="inscription-span">${id}</span></p>
-            <hr class="border">
-            <p class="inscription-text">Sat: <span class="inscription-span">${sat}</span></p>
-            <hr class="border">
-            <p class="inscription-text">Content Length: <span class="inscription-span">${contentLength}</span></p>
-            <hr class="border">
-            <p class="inscription-text">Genesis Fee: <span class="inscription-span">${genesisFee}</span></p>
-            <hr class="border">
-            <p class="inscription-text">Genesis Height: <a href="https://www.blockchain.com/explorer/blocks/btc/${genesisHeight}" target="_blank" class="inscription-link">${genesisHeight}</a></p>
-            <hr class="border">
-            <p class="inscription-text">Genesis Transaction: <span class="inscription-span">${genesisTransaction}</span></p>
-            <hr class="border">
-            <p class="inscription-text">Location: <span class="inscription-span">${location}</span></p>
-            <hr class="border">
-            <p class="inscription-text">Offset: <span class="inscription-span">${offset}</span></p>
-            <hr class="border">
-            <p class="inscription-text">Output Value: <span class="inscription-span">${outputValue}</span></p>
-            <hr class="border">
-            <p class="inscription-text">Timestamp: <span class="inscription-span">${timestamp}</span></p>
-            </div>
-      </div> 
-    <div>
-
-
-
-
-        `;
-      });
-    }
-
-</script>
+      recentInscriptionsDiv.appendChild(inscriptionDiv);
+    })
+  .catch(error => {
+    console.log(error);
+  });
+    </script>
+    <footer>
+      <p>&copy; Orkar.io 2023</p>
+      <a>
+      <div class="footer-social-media">
+        <a href="#"><i class="fa fa-twitter"></i></a>
+ <a href="#"><i class="fa-brands fa-discord"></i>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
