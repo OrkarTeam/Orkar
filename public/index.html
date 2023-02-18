@@ -48,38 +48,26 @@
       </section>
     </main>
     <script>
-      const recentInscriptionsDiv = document.querySelector("#recentInscriptions");
+  function getSite() {
+      const url = `https://ordapi.xyz/feed`;
+      getData(url)
+  }
 
-      fetch("https://ordapi.xyz/feed")
-  .then(response => response.json())
+window.addEventListener("load", getSite);
+
+function getData(url) {
+      fetch(url)
+      .then(response => response.json())
   .then(data => {
-    console.log(data); // Check the structure of the returned data
-  .then(recentInscriptions => {
-    for (const inscription of recentInscriptions) {
-      const inscriptionDiv = document.createElement("div");
-      inscriptionDiv.className = "inscription";
+    const items = data.rss.channel.item.slice(0, 4);
+    console.log(items);
+  
+    const title = items["title"];
+    const guid = items["guid"];
+    const link = items["link"];
 
-      const link = document.createElement("a");
-      link.href = inscription.link;
+  });}
 
-      const image = document.createElement("img");
-      image.src = "path/to/image";
-      image.alt = inscription.title;
-      image.className = "inscription-image";
-
-      const title = document.createElement("h3");
-      title.innerText = inscription.title;
-      title.className = "inscription-title";
-
-      link.appendChild(image);
-      link.appendChild(title);
-      inscriptionDiv.appendChild(link);
-
-      recentInscriptionsDiv.appendChild(inscriptionDiv);
-    })
-  .catch(error => {
-    console.log(error);
-  });
     </script>
     <footer>
       <p>&copy; Orkar.io 2023</p>
