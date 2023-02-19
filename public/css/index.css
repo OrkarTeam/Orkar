@@ -7,7 +7,7 @@
 
 /* Dark theme */
 body {
-  background-color: #1b1b1b;
+  background-color: #0d1012;
   color: #fff;
   font-family: Arial, sans-serif;
 }
@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Footer */
 footer {
-  background-color: #222;
+  background-color: #131719;
   color: #fff;
   padding: 2rem;
   text-align: center;
@@ -60,7 +60,7 @@ footer p {
 
 /* Navbar */
 .navbar {
-  background-color: #222;
+  background-color: #111517;
   color: #fff;
   padding: 1rem 2rem;
   display: flex;
@@ -231,7 +231,7 @@ footer p {
 
 /* Recent Inscriptions */
 #recentInscriptions {
-  background-color: #1b1b1b;
+  background-color: #0c1112;
   color: #fff;
   justify-content: space-between;
   align-items: center;
@@ -253,7 +253,7 @@ footer p {
 }
 
 .inscription-item {
-  background-color: #222;
+  background-color: #1d2027;
   border-radius: 15px;
   box-sizing: border-box;
   overflow: hidden;
