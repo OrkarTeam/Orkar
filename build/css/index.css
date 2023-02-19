@@ -1,0 +1,332 @@
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dark theme */
+body {
+  background-color: #0d1012;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: #feda6a;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f6c839;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+}
+
+
+/* Footer */
+footer {
+  background-color: #131719;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.footer-social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-social-media a {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.footer-social-media a:hover {
+  color: #aaa;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #111517;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-right a {
+  margin-left: 2rem;
+}
+
+.navbar-right a i.fa-circle-user {
+  color: rgb(228, 228, 228);
+  font-size: 2rem;
+}
+
+.navbar-right a i.fa-gear {
+  color: rgb(228, 228, 228);
+  font-size: 2rem;
+}
+
+.navbar-logo img {
+  margin-left: 1rem;
+  border-radius: 35%;
+  width: 40x;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-search-form {
+  display: flex;
+}
+
+.navbar-search-input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 2rem;
+  margin-right: 1rem;
+  width: 400px;
+  text-align: center;
+}
+
+.navbar-search-button {
+  background-color: #fff;
+  color: #000;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.navbar-signin {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-signin a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-left: 2rem;
+}
+
+.navbar-signin a img {
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
+}
+
+/* Recent Inscriptions */
+#recentInscriptions {
+  margin-top: 3rem;
+}
+
+/* Hero Section */
+.hero {
+  background: url("https://media.discordapp.net/attachments/933585220114972752/1077280663523384326/background2.png") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 8rem 0;
+}
+
+.hero-content h2 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-button {
+  display: inline-block;
+  background-color: #feda6a;
+  color: #222;
+  padding: 1rem 3rem;
+  border-radius: 4rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  transition: all 0.2s;
+}
+
+.hero-button:hover {
+  background-color: #f6c839;
+}
+
+.hero-logo {
+  display: inline-block;
+  background-color: #feda6a;
+  color: #222;
+  padding: 1rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.hero-login {
+  display: flex;
+  align-items: center;
+}
+
+.hero-login a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.hero-login a img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.hero-search-form {
+  display: flex;
+}
+
+.hero-search-input {
+  font-size: 1.25rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 2rem;
+  margin-right: 0.5rem;
+  flex-grow: 1;
+}
+
+.hero-search-button {
+  background-color: #fff;
+  color: #000;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+}
+
+/* Recent Inscriptions */
+#recentInscriptions {
+  background-color: #0c1112;
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#recentInscriptions h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.inscription-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0.6rem;
+}
+
+.image-container {
+  position: relative;
+}
+
+.inscription-item {
+  background-color: #1d2027;
+  border-radius: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 308.656px;
+  height: 338.656px;
+  margin: 10px;
+  border: 1px solid #eee;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  max-height: auto;
+  object-fit: contain;
+}
+
+#recentInscriptions [class^="title"] {
+  margin-bottom: 0px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#recentInscriptions .inscription-item img {
+  border: 2px solid #eee;
+  overflow: hidden;
+  border-radius: 15px;
+  display: block;
+  width: 230.656px;
+  height: 230.656px;
+  margin-top: 30px;
+}
+
+#recentInscriptions .inscription-item a {
+  text-decoration: none;
+  font-size: 28px;
+  color: rgb(143, 143, 143);
+  margin-bottom: -8px;
+  text-align: center;
+  width: 100%;
+}
+
+#recentInscriptions [class^="guid"],
+#recentInscriptions [class^="link"] {
+  display: none;
+}
+
+
+#recentInscriptions .inscription-item hr {
+  margin: 0;
+  width: 338.656px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  border: 1px solid #eee;
+}
+
+#recentInscriptions .inscription-item .image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+/* Fonts */
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
