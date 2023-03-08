@@ -10,34 +10,36 @@
     <title>Orkar.io</title>
     <link rel="stylesheet" type="text/css" href="../css/home.css">
     <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <link rel="icon" href="https://i.ibb.co/jGYwVTV/Orkar-Logo.png">
+    <link rel="icon" href="https://i.ibb.co/Ht6N5mT/3-Wm-Kv7d4-400x400.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-    <header>
-      <nav class="navbar">
-        <a href="/">
-          <div class="navbar-logo">
-            <img src="https://i.ibb.co/jGYwVTV/Orkar-Logo.png" alt="Orkar.io Logo" width="40" height="40">
-          </div>
-        </a>
-        
-        <form class="navbar-search-form" action="#">
-          <input class="navbar-search-input" type="text" id="inscriptionId" name="inscriptionid" placeholder="Search by Inscription ID">
-          <button class="navbar-search-button" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-        </form>
-        <div class="navbar-right">
-          <a href="#">List an Inscription</a>
-          <a href="#">
-            <i class="fa-solid fa-circle-user"></i></a>    
-            <a href="#">
-              <i class="fa-solid fa-gear"></i></a> 
-          
+    
+    <nav class="navbar">
+      <a href="/">
+        <div class="navbar-logo">
+          <img src="https://i.ibb.co/Ht6N5mT/3-Wm-Kv7d4-400x400.jpg" alt="Orkar.io Logo" width="40" height="40">
         </div>
-      </nav>
-    </header>
+      </a>
+      
+      <form class="navbar-search-form" action="#">
+        <input class="navbar-search-input" type="text" id="inscriptionId" name="inscriptionid" placeholder="Search by Inscription ID">
+        <button class="navbar-search-button" type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+
+      <div class="navbar-wallet">
+        <button type="button" class="wallet-button css-1adfvuh" aria-label="connect wallet" data-id="connect-wallet-button">
+          <svg viewBox="0 0 24 24" focusable="false" class="wallet-icon css-1sdtgly" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 12.75H18V14.25H16.5V12.75ZM21 6H3V3.75H19.5V2.25H3C2.17157 2.25 1.5 2.92157 1.5 3.75V19.5C1.5 20.3284 2.17157 21 3 21H21C21.8284 21 22.5 20.3284 22.5 19.5V7.5C22.5 6.67157 21.8284 6 21 6ZM3 19.5V7.5H21V9.75H15C14.1716 9.75 13.5 10.4216 13.5 11.25V15.75C13.5 16.5784 14.1716 17.25 15 17.25H21V19.5H3ZM21 15.75V11.25H15V15.75H21Z" fill="currentColor"></path>
+          </svg>
+        </button>
+        <button href="#" class="wallet-button css-1adfvuh" aria-label="settings" data-id="settings-button">
+          <i class="fa-solid fa-gear wallet-icon" aria-hidden="Fales"></i>
+        </button>
+      </div>      
+    </nav>
 
     <div id="inscriptionInfo"></div>
     <div id="errorMessage" style="display: none;">There was an error fetching the inscription information. Please try again later.</div>
@@ -74,13 +76,13 @@ window.addEventListener("load", getSite);
           const address = inscriptionData["address"];
           const id = inscriptionData["id"];
           const sat = inscriptionData["sat"];
-          const contentLength = inscriptionData["content length"];
-          const genesisFee = inscriptionData["genesis fee"];
-          const genesisHeight = inscriptionData["genesis height"].split("/")[2];
-          const genesisTransaction = inscriptionData["genesis transaction"];
+          const contentLength = inscriptionData["content_length"];
+          const genesisFee = inscriptionData["genesis_fee"];
+          const genesisHeight = inscriptionData["genesis_height"].split("/")[2];
+          const genesisTransaction = inscriptionData["genesis_transaction"];
           const location = inscriptionData["location"];
           const offset = inscriptionData["offset"];
-          const outputValue = inscriptionData["output value"];
+          const outputValue = inscriptionData["output_value"];
           const timestamp = inscriptionData["timestamp"];
 
           inscriptionInfoDiv.innerHTML = `
@@ -128,7 +130,7 @@ window.addEventListener("load", getSite);
     }
   </script>
 <footer>
-  <p>&copy; Orkar.io 2023</p>
+  <p style="margin: 0 auto;">&copy; Orkar.io 2023</p>
   <div class="footer-social-media">
     <a href="https://twitter.com/orkar_io" target="_blank"><i class="fa fa-twitter"></i></a>
     <a href="https://discord.gg/WD3mwXFrfk" target="_blank"><i class="fab fa-discord"></i></a>
