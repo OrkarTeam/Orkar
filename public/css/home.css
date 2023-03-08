@@ -1,164 +1,86 @@
 /* Global styles */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
-/* Inscription Info */
+body {
+  color: #fff;
+  min-height: 100%; /* add this line */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* Inscription info styles */
 #inscriptionInfo {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-top: 8rem;
+  margin-top: 0px;
+  padding: 32px;
+  background-color: #101316;
 }
 
-#inscriptionInfo .theimg {
-  width: 100%;
-  height: auto;
-  margin-right: 1rem;
-  border: 5px solid rgb(20, 20, 20);
-  border-radius: 9px;
-  width: 338.656px;
-  height: 338.656px;
+.theimg {
+  width: 330px;
+  height: 330px;
+  margin-right: 32px;
+  border-radius: 8px;
+  border: 2px solid #313539;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 32px;
 }
 
 .topdiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-top: 1rem;
+  align-items: flex-start;
+  color: #fff;
 }
 
 .topdiv h2 {
-  margin-bottom: 0.5rem;
+  font-size: 28px;
+  margin-bottom: 16px;
 }
 
-.topdiv p.address {
-  margin-top: 0.5rem;
-}
-
-.maindiv {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.address {
+  font-size: 14px;
 }
 
 .inscription-text {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  }
-  
-  .inscription-span {
-  font-weight: normal;
-  }
-  
-  .inscription-link {
-  color: #feda6a;
-  text-decoration: none;
-  }
-  
-  .border {
-  border-top: 1px solid #555;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  }
-  
-  /* Error message */
-  #errorMessage {
-  color: red;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 2rem;
-  }
-  
-  /* Footer */
-  footer {
-  background-color: #222;
-  color: #fff;
-  padding: 2rem;
-  text-align: center;
-  margin-top: 2rem;
-  }
-  
-  footer p {
-  margin: 0;
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  }
-  
-  .footer-social-media {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  }
-  
-  .footer-social-media a {
-  color: #fff;
-  font-size: 1.5rem;
-  }
-  
-  .footer-social-media a:hover {
-  color: #aaa;
-  }
-  
-  /* Media queries */
-  @media (max-width: 768px) {
-  .navbar-logo img {
-  margin-left: 0;
-  }
-  
-  .navbar-search-form {
-  display: none;
-  }
-  
-  .navbar-right {
-  margin-left: auto;
-  }
-  
-  .navbar-right a {
-  margin-left: 1rem;
-  }
-  
-  .topdiv {
-  margin: 0;
-  text-align: center;
-  }
-  
-  .topdiv h2 {
-  font-size: 1.5rem;
-  }
-  }
-  
-  @media (max-width: 425px) {
-  .navbar {
-  padding: 1rem;
-  }
-  
-  .navbar-search-input {
-  width: 100%;
-  }
-  
-  .navbar-right a {
-  font-size: 1.2rem;
-  }
-  
-  #inscriptionInfo {
-  margin-top: 12rem;
-  }
-  
-  .topdiv h2 {
-  font-size: 1.2rem;
-  }
-  
-  .inscription-text {
-  font-size: 1rem;
-  }
-  }
+  color: #bbb;
+  font-size: 16px;
+  margin: 8px 0;
+}
 
-  
+.inscription-span {
+  font-weight: bold;
+  color: #fff;
+}
+
+.inscription-link {
+  color: #bbb;
+}
+
+.inscription-link:hover {
+  color: #fff;
+}
+
+.border {
+  border-top: 1px solid #333;
+  margin: 16px 0;
+}
+
+/* ORKAR.IO HOME.CSS */
