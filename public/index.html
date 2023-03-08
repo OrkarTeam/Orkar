@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -14,21 +15,23 @@
   gtag('js', new Date());
 
   gtag('config', 'G-8FY393NL08');
-</script>
+
+</script> 
     <meta charset="UTF-8">
     <title>Orkar.io</title>
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link rel="icon" href="https://i.ibb.co/jGYwVTV/Orkar-Logo.png">
+    <link rel="icon" href="https://i.ibb.co/Ht6N5mT/3-Wm-Kv7d4-400x400.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   
   <body>
+    
     <header>
       <nav class="navbar">
         <a href="/">
           <div class="navbar-logo">
-            <img src="https://i.ibb.co/jGYwVTV/Orkar-Logo.png" alt="Orkar.io Logo" width="40" height="40">
+            <img src="https://i.ibb.co/Ht6N5mT/3-Wm-Kv7d4-400x400.jpg" alt="Orkar.io Logo" width="40" height="40">
           </div>
         </a>
         
@@ -39,14 +42,16 @@
           </button>
         </form>
         
-        <div class="navbar-right">
-          <a href="#">List an Inscription</a>
-          <a href="#">
-            <i class="fa-solid fa-circle-user"></i></a>    
-            <a href="#">
-              <i class="fa-solid fa-gear"></i></a> 
-          
-        </div>
+        <div class="navbar-wallet">
+          <button type="button" class="wallet-button css-1adfvuh" aria-label="connect wallet" data-id="connect-wallet-button">
+            <svg viewBox="0 0 24 24" focusable="false" class="wallet-icon css-1sdtgly" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 12.75H18V14.25H16.5V12.75ZM21 6H3V3.75H19.5V2.25H3C2.17157 2.25 1.5 2.92157 1.5 3.75V19.5C1.5 20.3284 2.17157 21 3 21H21C21.8284 21 22.5 20.3284 22.5 19.5V7.5C22.5 6.67157 21.8284 6 21 6ZM3 19.5V7.5H21V9.75H15C14.1716 9.75 13.5 10.4216 13.5 11.25V15.75C13.5 16.5784 14.1716 17.25 15 17.25H21V19.5H3ZM21 15.75V11.25H15V15.75H21Z" fill="currentColor"></path>
+            </svg>
+          </button>
+          <button href="#" class="wallet-button css-1adfvuh" aria-label="settings" data-id="settings-button">
+            <i class="fa-solid fa-gear wallet-icon" aria-hidden="Fales"></i>
+          </button>
+        </div>      
       </nav>
     </header>
     <main>
@@ -118,76 +123,11 @@
  
       
     </main>
-    <script>
-  function getSite() {
-      const url = `https://ordapi.xyz/feed`;
-      getData(url)
-  }
 
-window.addEventListener("load", getSite);
-
-function getData(url) {
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const items = data.rss.channel.item.slice(0, 4);
-
-      const title0 = items[0].title;
-      const title1 = items[1].title;
-      const title2 = items[2].title;
-      const title3 = items[3].title;
-
-      const guid0 = items[0].guid;
-      const guid1 = items[1].guid;
-      const guid2 = items[2].guid;
-      const guid3 = items[3].guid;
-
-      const link0 = items[0].link;
-      const link1 = items[1].link;
-      const link2 = items[2].link;
-      const link3 = items[3].link;
-
-      const id0 = guid0.substring(13);
-      const id1 = guid1.substring(13);
-      const id2 = guid2.substring(13);
-      const id3 = guid3.substring(13);
-
-      document.getElementById("title0").innerHTML = `${title0}`;
-      document.getElementById("title1").innerHTML = `${title1}`;
-      document.getElementById("title2").innerHTML = `${title2}`;
-      document.getElementById("title3").innerHTML = `${title3}`;
-
-      document.getElementById(`title0`).href = `/inscription?inscriptionid=${id0}`;
-      document.getElementById(`title1`).href = `/inscription?inscriptionid=${id1}`;
-      document.getElementById(`title2`).href = `/inscription?inscriptionid=${id2}`;
-      document.getElementById(`title3`).href = `/inscription?inscriptionid=${id3}`;
-
-      document.getElementById("guid0").innerHTML = `${guid0}`;
-      document.getElementById("guid1").innerHTML = `${guid1}`;
-      document.getElementById("guid2").innerHTML = `${guid2}`;
-      document.getElementById("guid3").innerHTML = `${guid3}`;
-
-      document.getElementById("link0").innerHTML = `${link0}`;
-      document.getElementById("link1").innerHTML = `${link1}`;
-      document.getElementById("link2").innerHTML = `${link2}`;
-      document.getElementById("link3").innerHTML = `${link3}`;
-
-      document.getElementById("img0").src=`https://ordinals.com/content/${id0}`;
-      document.getElementById("img1").src=`https://ordinals.com/content/${id1}`;
-      document.getElementById("img2").src=`https://ordinals.com/content/${id2}`;
-      document.getElementById("img3").src=`https://ordinals.com/content/${id3}`;
-      
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
-}
-
-
-
-    </script>
+    <script async src="index.js"></script>
+    
 <footer>
-  <p>&copy; Orkar.io 2023</p>
+  <p style="margin: 0 auto;">&copy; Orkar.io 2023</p>
   <div class="footer-social-media">
     <a href="https://twitter.com/orkar_io" target="_blank"><i class="fa fa-twitter"></i></a>
     <a href="https://discord.gg/WD3mwXFrfk" target="_blank"><i class="fab fa-discord"></i></a>
