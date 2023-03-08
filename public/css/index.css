@@ -7,18 +7,18 @@
 
 /* Dark theme */
 body {
-  background-color: #0d1012;
+  background-color: #101316;
   color: #fff;
   font-family: Arial, sans-serif;
 }
 
 a {
-  color: #feda6a;
+  color: #bbb;
   text-decoration: none;
 }
 
 a:hover {
-  color: #f6c839;
+  color: #fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -28,16 +28,26 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Footer */
 footer {
-  background-color: #131719;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px; /* reduce padding to make footer less tall */
+  background-color: #0d1012;
   color: #fff;
-  padding: 2rem;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
   text-align: center;
   margin-top: 0;
   margin-bottom: 0;
 }
 
 footer p {
-  margin: 0;
+  margin: 0; /* remove default margin */
+  padding-left: 16px; /* add left padding for space between edge */
   font-size: 1.25rem;
   margin-bottom: 2rem;
 }
@@ -50,39 +60,41 @@ footer p {
 }
 
 .footer-social-media a {
-  color: #fff;
+  margin: 0 8px;
+  color: #bbb;
   font-size: 1.5rem;
 }
 
 .footer-social-media a:hover {
-  color: #aaa;
+  color: #fff;
 }
-
+  
 /* Navbar */
 .navbar {
-  background-color: #111517;
+  background-color: #0d1012;
   color: #fff;
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 16px;
+  position: sticky;
+  top: 0;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .navbar-right a {
   margin-left: 2rem;
+  color: #bbb;
 }
 
-.navbar-right a i.fa-circle-user {
-  color: rgb(228, 228, 228);
-  font-size: 2rem;
-}
+.navbar-right a:hover {
+  color: #fff;
+  }
 
-.navbar-right a i.fa-gear {
-  color: rgb(228, 228, 228);
-  font-size: 2rem;
-}
 
 .navbar-logo img {
+  margin-right: 8px;
   margin-left: 1rem;
   border-radius: 35%;
   width: 40x;
@@ -90,48 +102,93 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .navbar-search-form {
   display: flex;
+  align-items: center;
+  background-color: #1a1f23;
+  border-radius: 5px;
+  padding: 4px 8px;
+  margin-left: 16px;
+  position: relative;
+  box-shadow:  4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .navbar-search-input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
   font-size: 1rem;
   padding: 0.5rem;
-  border: none;
   border-radius: 2rem;
   margin-right: 1rem;
+  margin-left: 8px;
+  font-size: 14px;
   width: 400px;
   text-align: center;
+  
+}
+
+.navbar-search-input:focus {
+  outline: none;
 }
 
 .navbar-search-button {
-  background-color: #fff;
-  color: #000;
+  color: #777e84;
   font-size: 1.25rem;
   border: none;
   border-radius: 2rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #bbb;
+  position: absolute;
+  right: 8px;
 }
 
-.navbar-signin {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-signin a {
-  display: flex;
-  align-items: center;
+.navbar-search-button:hover {
   color: #fff;
-  margin-left: 2rem;
+  }
+
+.navbar-wallet {
+  display: flex;
+  align-items: center;
 }
 
-.navbar-signin a img {
-  width: 30px;
-  height: 30px;
-  margin-right: 1rem;
+.wallet-button {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 10px 16px;
+  background-color: #1a1f23;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.wallet-button:hover {
+  background-color: #313539;
+}
+
+.wallet-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0px;
+  fill: #fff;
+}
+
+.navbar-wallet button:first-child {
+  margin-right: 8px;
 }
 
 /* Recent Inscriptions */
@@ -141,7 +198,6 @@ footer p {
 
 /* Hero Section */
 .hero {
-  background: url("https://media.discordapp.net/attachments/933585220114972752/1077280663523384326/background2.png") no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -160,8 +216,8 @@ footer p {
 
 .hero-button {
   display: inline-block;
-  background-color: #feda6a;
-  color: #222;
+  background-color: #1a1f23;
+  color: #bbb;
   padding: 1rem 3rem;
   border-radius: 4rem;
   font-size: 1.25rem;
@@ -169,69 +225,17 @@ footer p {
   font-weight: bold;
   letter-spacing: 0.1rem;
   transition: all 0.2s;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .hero-button:hover {
-  background-color: #f6c839;
+  background-color: #313539;
 }
 
-.hero-logo {
-  display: inline-block;
-  background-color: #feda6a;
-  color: #222;
-  padding: 1rem;
-  border-radius: 50%;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-right: 1rem;
-}
-
-.hero-login {
-  display: flex;
-  align-items: center;
-}
-
-.hero-login a {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  text-decoration: none;
-  margin-right: 1rem;
-}
-
-.hero-login a img {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  margin-right: 0.5rem;
-}
-
-.hero-search-form {
-  display: flex;
-}
-
-.hero-search-input {
-  font-size: 1.25rem;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 2rem;
-  margin-right: 0.5rem;
-  flex-grow: 1;
-}
-
-.hero-search-button {
-  background-color: #fff;
-  color: #000;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 2rem;
-  padding: 0.75rem 1.5rem;
-  cursor: pointer;
-}
 
 /* Recent Inscriptions */
 #recentInscriptions {
-  background-color: #0c1112;
+  background-color: #101316;
   color: #fff;
   justify-content: space-between;
   align-items: center;
@@ -246,6 +250,7 @@ footer p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 0.6rem;
+  margin-bottom: 50px;
 }
 
 .image-container {
@@ -253,15 +258,15 @@ footer p {
 }
 
 .inscription-item {
-  background-color: #1d2027;
+  background-color: #1a1f23;
   border-radius: 15px;
   box-sizing: border-box;
   overflow: hidden;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 4px  rgba(0, 0, 0, 0.25);
   width: 308.656px;
   height: 338.656px;
   margin: 10px;
-  border: 1px solid #eee;
+  border: 0.1px solid #313539;
   margin: 20px;
   display: flex;
   flex-direction: column;
@@ -280,7 +285,8 @@ footer p {
 }
 
 #recentInscriptions .inscription-item img {
-  border: 2px solid #eee;
+  border: 1.5px solid #313539;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   border-radius: 15px;
   display: block;
@@ -309,7 +315,7 @@ footer p {
   width: 338.656px;
   margin-top: 10px;
   margin-bottom: 0px;
-  border: 1px solid #eee;
+  border: 1px solid #313539;
 }
 
 #recentInscriptions .inscription-item .image-container {
