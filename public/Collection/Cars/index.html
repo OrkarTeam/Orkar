@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+     rel="stylesheet">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
+    <link rel="canonical" href="https://orkar.io/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Orkar.io - Marketplace</title>
+    <link rel="icon" href="https://i.ibb.co/Zdv4Mzs/reallogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <meta name="description" content="Orkar is a multichain Marketplace">
+    <meta name="keywords"
+        content="ordinals, bitcoin, nfts, nft, nft, btc, inscriptions, digital artifacts, marketplace" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+
+<body>
+  
+  <header>
+    <nav class="navbar">
+        <a href="/">
+          <div class="navbar-logo">
+            <img src="https://i.ibb.co/Zdv4Mzs/reallogo.png" alt="Orkar.io Logo" width="40" height="40">
+          </div>
+        </a>
+        <form class="navbar-search-form" action="/inscription">
+         
+            <label for="inscriptionId" class="sr-only">Search by Inscription ID or Number</label>
+            <input type="text" class="navbar-search-input" id="inscriptionIdd" name="number" placeholder="Search by Inscription ID">
+      
+        <button class="navbar-search-button" type="submit" class="btn btn-primary">
+            <i class="fa fa-search"></i>
+        </button>
+    </form>
+        
+        <div class="navbar-wallet">
+          <button href="#" class="wallet-button css-1adfvuh" aria-label="collections" data-id="collectionsEX" id="collectionsButton">
+            <i class="fa-regular fa-compass" aria-hidden="Fales"></i>
+          </button>
+          <button type="button" class="wallet-button css-1adfvuh" aria-label="connect wallet" data-id="connect-wallet-button">
+            <svg viewBox="0 0 24 24" focusable="false" class="wallet-icon css-1sdtgly" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 12.75H18V14.25H16.5V12.75ZM21 6H3V3.75H19.5V2.25H3C2.17157 2.25 1.5 2.92157 1.5 3.75V19.5C1.5 20.3284 2.17157 21 3 21H21C21.8284 21 22.5 20.3284 22.5 19.5V7.5C22.5 6.67157 21.8284 6 21 6ZM3 19.5V7.5H21V9.75H15C14.1716 9.75 13.5 10.4216 13.5 11.25V15.75C13.5 16.5784 14.1716 17.25 15 17.25H21V19.5H3ZM21 15.75V11.25H15V15.75H21Z" fill="currentColor"></path>
+            </svg>
+          </button>
+          <button href="#" class="wallet-button css-1adfvuh" aria-label="settings" data-id="settings-button">
+            <i class="fa-solid fa-gear wallet-icon" aria-hidden="Fales"></i>
+          </button>
+        </div>      
+      </nav>
+    </header>
+    <main>
+      <div class="collection-header">
+
+          <img src="https://pbs.twimg.com/profile_images/1624275990032818177/bCufAb_J_400x400.jpg" alt="Collection Logo" class="collection-logo">
+        
+        <div class="collection-banner-container">
+          <img src="https://pbs.twimg.com/profile_banners/1623716729204641792/1676092475/1500x500" alt="Collection Banner" class="collection-banner">
+        </div>
+      </div>
+       
+      </div>
+      <div class="collection-name">
+        <h1>Ordinal Cars</h1> 
+
+    </div>
+    <div class="info-line">
+    <hr class="border">
+  </div>
+      <div class="inscription-grid"></div>
+    </main>
+    <script>
+const limit = 1;
+
+// Get the list of IDs from the text file
+fetch('ids.txt')
+  .then(response => response.text())
+  .then(ids => {
+    // Split the IDs by line
+    const idList = ids.split('\n');
+
+    // Get the container for the inscription grid
+    const inscriptionGrid = document.querySelector('.inscription-grid');
+
+    // Loop through each ID and fetch the data
+    idList.forEach((id, index) => {
+      // Fetch the inscription data for the current ID
+      fetch(`https://ordapi.xyz/inscription/${id}?limit=${limit}`)
+        .then(response => response.json())
+        .then(inscriptionData => {
+          // Create the container div
+          const containerDiv = document.createElement('div');
+          containerDiv.classList.add('inscription-item');
+
+          // Create the image container
+          const imageContainer = document.createElement('div');
+          imageContainer.classList.add('image-container');
+
+          // Create the image element
+          const iframe = document.createElement('iframe');
+iframe.src = `https://ord.ordscan.xyz/preview/${id}`;
+iframe.id = `iframe${index}`;
+iframe.classList.add(`iframe${index}`);
+iframe.setAttribute('scrolling', 'no');
+
+
+          // Create the link element
+          const link = document.createElement('a');
+          link.href = `/inscription/?number=${id}`;
+          link.id = `link${index}`;
+          link.classList.add(`link${index}`);
+
+          // Create the title element
+          const titleElement = document.createElement('a');
+          titleElement.id = `title${index}`;
+          titleElement.href = `/inscription/?number=${id}`;
+          titleElement.classList.add(`title${index}`);
+          titleElement.innerHTML = inscriptionData.title;
+
+          // Create the guid element
+          const guid = document.createElement('div');
+          guid.href = `/inscription/?number=${id}`;
+          guid.id = `guid${index}`;
+          guid.classList.add(`guid${index}`);
+          guid.innerHTML = `Ordinal Cars #${index + 1}`;
+
+          // Add the elements to the container
+          imageContainer.appendChild(iframe);
+          imageContainer.appendChild(document.createElement('hr'));
+          imageContainer.appendChild(link);
+          containerDiv.appendChild(imageContainer);
+          containerDiv.appendChild(titleElement);
+          containerDiv.appendChild(document.createElement('br'));
+          containerDiv.appendChild(guid);
+
+          // Add the container to the inscription grid
+          inscriptionGrid.appendChild(containerDiv);
+        })
+        .catch(error => {
+          console.error(`Error fetching data for ID ${id}:`, error);
+        });
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching IDs:', error);
+  });
+
+  const collectionsButton = document.getElementById('collectionsButton');
+collectionsButton.addEventListener('click', () => {
+  window.location.href = '/collection';
+});
+
+</script>
+<footer>
+  <p style="margin: 0 auto;">&copy; Orkar.io 2023</p>
+  <div class="footer-social-media">
+    <a href="https://twitter.com/orkar_io" target="_blank"><i class="fa fa-twitter"></i></a>
+    <a href="https://discord.gg/WD3mwXFrfk" target="_blank"><i class="fab fa-discord"></i></a>
+  </div>
+</footer>
+  </div>
+</body>
+</html>

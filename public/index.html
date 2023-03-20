@@ -1,47 +1,49 @@
 <!DOCTYPE html>
-<html>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
- rel="stylesheet">
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
+<html lang="en">
 
-  <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8FY393NL08"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8FY393NL08');
-
-</script> 
-    <meta charset="UTF-8">
-    <title>Orkar.io</title>
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link rel="icon" href="https://i.ibb.co/Ht6N5mT/3-Wm-Kv7d4-400x400.jpg">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+     rel="stylesheet">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
+    <link rel="canonical" href="https://orkar.io/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Orkar.io - Marketplace</title>
+    <link rel="icon" href="https://i.ibb.co/Zdv4Mzs/reallogo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <meta name="description" content="Orkar is a multichain Marketplace">
+    <meta name="keywords"
+        content="ordinals, bitcoin, nfts, nft, nft, btc, inscriptions, digital artifacts, marketplace" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+
+<body>
   
-  <body>
-    
-    <header>
-      <nav class="navbar">
+  <header>
+    <nav class="navbar">
         <a href="/">
           <div class="navbar-logo">
-            <img src="https://i.ibb.co/Ht6N5mT/3-Wm-Kv7d4-400x400.jpg" alt="Orkar.io Logo" width="40" height="40">
+            <img src="https://i.ibb.co/Zdv4Mzs/reallogo.png" alt="Orkar.io Logo" width="40" height="40">
           </div>
         </a>
-        
         <form class="navbar-search-form" action="/inscription">
-          <input class="navbar-search-input" type="text" id="inscriptionId" name="inscriptionid" placeholder="Search by Inscription ID">
-          <button class="navbar-search-button" type="submit">
+         
+            <label for="inscriptionId" class="sr-only">Search by Inscription ID or Number</label>
+            <input type="text" class="navbar-search-input" id="inscriptionIdd" name="number" placeholder="Search by Inscription ID">
+      
+        <button class="navbar-search-button" type="submit" class="btn btn-primary">
             <i class="fa fa-search"></i>
-          </button>
-        </form>
+        </button>
+    </form>
         
         <div class="navbar-wallet">
+          <button href="#" class="wallet-button css-1adfvuh" aria-label="collections" data-id="collectionsEX" id="collectionsButton">
+            <i class="fa-regular fa-compass" aria-hidden="Fales"></i>
+          </button>
           <button type="button" class="wallet-button css-1adfvuh" aria-label="connect wallet" data-id="connect-wallet-button">
             <svg viewBox="0 0 24 24" focusable="false" class="wallet-icon css-1sdtgly" aria-hidden="true">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 12.75H18V14.25H16.5V12.75ZM21 6H3V3.75H19.5V2.25H3C2.17157 2.25 1.5 2.92157 1.5 3.75V19.5C1.5 20.3284 2.17157 21 3 21H21C21.8284 21 22.5 20.3284 22.5 19.5V7.5C22.5 6.67157 21.8284 6 21 6ZM3 19.5V7.5H21V9.75H15C14.1716 9.75 13.5 10.4216 13.5 11.25V15.75C13.5 16.5784 14.1716 17.25 15 17.25H21V19.5H3ZM21 15.75V11.25H15V15.75H21Z" fill="currentColor"></path>
@@ -58,17 +60,18 @@
         <div class="hero-content">
           <h2>Discover and Collect Unique Inscriptions</h2>
           <p>Buy, sell, and discover unique inscriptions with Orkar.io - the world's leading marketplace for ordinals.</p>
-          <a href="/feed" class="hero-button">Browse Inscriptions</a>
+          <a href="#" class="hero-button">Browse Inscriptions</a>
         </div>
       </section>
+     
       <section id="recentInscriptions">
         <div class="inscription-grid">
           <div class="inscription-item">
             <div class="image-container">
-              <img src="" id="img0" class="img0">
-              <hr class="border">
-             
+              <iframe id="img0" class="img0"> </iframe>
+
             </div>
+            <hr class="border">
             <a href="#" id="title0" class="title0"></a>
 
             <br>
@@ -78,10 +81,10 @@
       
           <div class="inscription-item">
             <div class="image-container">
-              <img src="" id="img1" class="img1">
-              <hr class="border">
+              <iframe src="" id="img1" class="img1"> </iframe>
               
             </div>
+            <hr class="border">
             <a href="#" id="title1" class="title1"></a>
             <br>
             <br>
@@ -89,10 +92,10 @@
       
           <div class="inscription-item">
             <div class="image-container">
-              <img src="" id="img2" class="img2">
-              <hr class="border">
+              <iframe src="" id="img2" class="img2"> </iframe>
               
             </div>
+            <hr class="border">
             <a href="#" id="title2" class="title2"></a>
             <br>
             <br>
@@ -100,9 +103,10 @@
       
           <div class="inscription-item">
             <div class="image-container">
-              <img src="" id="img3" class="img3">
-              <hr class="border">
+            <iframe src="" id="img3" class="img3"> </iframe>
+
             </div>
+            <hr class="border">
             <a href="#" id="title3" class="title3"></a>
             <br>
             <br>
