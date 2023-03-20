@@ -1,5 +1,5 @@
 function getSite() {
-    const url = `https://ordinals.com/feed.xml`;
+    const url = `https://ord.ordscan.xyz/feed.xml`;
     getData(url);
   }
   
@@ -33,18 +33,30 @@ function getSite() {
         document.getElementById("title2").innerHTML = `${title2}`;
         document.getElementById("title3").innerHTML = `${title3}`;
   
-        document.getElementById(`title0`).href = `/inscription?inscriptionid=${id0}`;
-        document.getElementById(`title1`).href = `/inscription?inscriptionid=${id1}`;
-        document.getElementById(`title2`).href = `/inscription?inscriptionid=${id2}`;
-        document.getElementById(`title3`).href = `/inscription?inscriptionid=${id3}`;
+        document.getElementById(`title0`).href = `/inscription?number=${id0}`;
+        document.getElementById(`title1`).href = `/inscription?number=${id1}`;
+        document.getElementById(`title2`).href = `/inscription?number=${id2}`;
+        document.getElementById(`title3`).href = `/inscription?number=${id3}`;
   
-        document.getElementById("img0").src=`https://ordinals.com/content/${id0}`;
-        document.getElementById("img1").src=`https://ordinals.com/content/${id1}`;
-        document.getElementById("img2").src=`https://ordinals.com/content/${id2}`;
-        document.getElementById("img3").src=`https://ordinals.com/content/${id3}`;
+        document.getElementById("img0").src=`https://ord.ordscan.xyz/preview/${id0}`;
+        document.getElementById("img1").src=`https://ord.ordscan.xyz/preview/${id1}`;
+        document.getElementById("img2").src=`https://ord.ordscan.xyz/preview/${id2}`;
+        document.getElementById("img3").src=`https://ord.ordscan.xyz/preview/${id3}`;
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
+      
   }
+  window.addEventListener('DOMContentLoaded', () => {
+    const iframeElements = document.querySelectorAll('.inscription-item iframe');
+    iframeElements.forEach(iframe => {
+      iframe.setAttribute('scrolling', 'no');
+    });
+  });
+
+  const collectionsButton = document.getElementById('collectionsButton');
+  collectionsButton.addEventListener('click', () => {
+    window.location.href = '/collection';
+  });
   
