@@ -57,6 +57,6 @@ function getSite() {
 
   const collectionsButton = document.getElementById('collectionsButton');
   collectionsButton.addEventListener('click', () => {
-    window.location.href = '/collection';
+    window.location.href = '/Collection';
   });
   
