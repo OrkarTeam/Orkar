@@ -38,10 +38,10 @@ function getSite() {
         document.getElementById(`title2`).href = `/inscription?number=${id2}`;
         document.getElementById(`title3`).href = `/inscription?number=${id3}`;
   
-        document.getElementById("img0").src=`https://ord.ordscan.xyz/preview/${id0}`;
-        document.getElementById("img1").src=`https://ord.ordscan.xyz/preview/${id1}`;
-        document.getElementById("img2").src=`https://ord.ordscan.xyz/preview/${id2}`;
-        document.getElementById("img3").src=`https://ord.ordscan.xyz/preview/${id3}`;
+        document.getElementById("img0").src=`https://ordinals.b-cdn.net/preview/${id0}`;
+        document.getElementById("img1").src=`https://ordinals.b-cdn.net/preview/${id1}`;
+        document.getElementById("img2").src=`https://ordinals.b-cdn.net/preview/${id2}`;
+        document.getElementById("img3").src=`https://ordinals.b-cdn.net/preview/${id3}`;
       })
       .catch(error => {
         console.error('Error fetching data:', error);
