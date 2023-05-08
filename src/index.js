@@ -1,5 +1,5 @@
 function getSite() {
-    const url = `https://ord.ordscan.xyz/feed.xml`;
+    const url = `https://ordinals.b-cdn.net//feed.xml`;
     getData(url);
   }
   
