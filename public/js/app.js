@@ -234,7 +234,7 @@ function calculateFee(vins, vouts, recommendedFeeRate, includeChangeOutput = tru
 }
 
 function getExplorerLink(inscriptionId) {
-    return `https://ord.ordscan.xyz/inscription/${inscriptionId.replace(':', 'i')}`
+    return `https://ordinals.b-cdn.net/inscription/${inscriptionId.replace(':', 'i')}`
 }
 
 async function getTxHexById(txId) {
@@ -529,7 +529,7 @@ async function inscriptionPage() {
         span.textContent = inscriptionNumber;
     }
 
-    document.getElementById('preview').src = `https://ord.ordscan.xyz/preview/${inscriptionID}`;
+    document.getElementById('preview').src = `https://ordinals.b-cdn.net/preview/${inscriptionID}`;
 
     document.getElementById('inscriptionId').value = inscription.id;
     document.getElementById('owner').value = inscription.address;
