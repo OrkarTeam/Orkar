@@ -1,5 +1,5 @@
 const isProduction = !location.href.includes('signet')
-const ordinalsExplorerUrl = isProduction ? "https://ordinals.b-cdn.net/" : "https://ordinals.b-cdn.net/"
+const ordinalsExplorerUrl = isProduction ? "https://ordinals.b-cdn.net" : "https://ordinals.b-cdn.net/"
 const baseMempoolUrl = isProduction ? "https://mempool.space" : "https://mempool.space/signet"
 const networkName = isProduction ? "mainnet" : "signet"
 const baseMempoolApiUrl = `${baseMempoolUrl}/api`
