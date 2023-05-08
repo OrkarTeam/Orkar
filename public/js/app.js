@@ -1,5 +1,5 @@
 const isProduction = !location.href.includes('signet')
-const ordinalsExplorerUrl = isProduction ? "https://ord.ordscan.xyz" : "http://ord.ordscan.xyz/"
+const ordinalsExplorerUrl = isProduction ? "https://ord.ordinalnovus.com" : "https://ord.ordinalnovus.com/"
 const baseMempoolUrl = isProduction ? "https://mempool.space" : "https://mempool.space/signet"
 const networkName = isProduction ? "mainnet" : "signet"
 const baseMempoolApiUrl = `${baseMempoolUrl}/api`
@@ -265,7 +265,7 @@ function openInscription() {
 }
 
 async function getInscriptionIdByNumber(inscriptionNumber) {
-    const html = await fetch("https://ord.ordscan.xyz/inscriptions/" + inscriptionNumber)
+    const html = await fetch("https://ordinals.b-cdn.net/inscriptions/" + inscriptionNumber)
         .then(response => response.text())
 
     return html.match(/\/inscription\/(.*?)>/)[1]
